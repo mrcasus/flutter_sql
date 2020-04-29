@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sql/screens/note_detail.dart';
+import 'package:flutter_sql/screens/exportToExcel.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,13 +48,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedTabIndex = 0;
 
-  List _pages = [
-    Text("Veri Girişi"),
-    Text("Listeleme"),
-    Text("Arama"),
-    Text("Excel Aktarma"),
-  ];
-
+ final _pageOptions = [
+   NoteDetail(), // Burada herhangi bir değer vermediğiniz için hata veriyor.
+   
+   //NoteList(),
+   ExportToExcel(),
+   //ExportToExcel(),
+ ];
+  
   _changeIndex(int index) {
     setState(() {
       _selectedTabIndex = index;
@@ -64,7 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
           title: Text("YkMobim"), backgroundColor: Colors.lightBlue[900]),
-      body: Center(child: _pages[_selectedTabIndex]),
+      body: _pageOptions[_selectedTabIndex],
+      //Center(child: _pageOptions[_selectedTabIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTabIndex,
         type: BottomNavigationBarType.fixed,
@@ -82,3 +86,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
