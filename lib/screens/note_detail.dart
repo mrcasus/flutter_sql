@@ -57,10 +57,10 @@ List<String> alt=['AKILLI TELEFON','ALARM','BANKO','BARKOD PRINTER','CRADLE','DO
 
 Future scan() async {
     try {
-      String barcode = await BarcodeScanner.scan();
+      String barcode = (await BarcodeScanner.scan()) as String;
       setState(() => this.barcode = barcode);
     } on PlatformException catch (e) {
-      if (e.code == BarcodeScanner.CameraAccessDenied) {
+      if (e.code == BarcodeScanner.cameraAccessDenied) {
         setState(() {
           this.barcode = 'Kamera yetkisi verin!';
         });
