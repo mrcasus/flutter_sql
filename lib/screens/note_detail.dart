@@ -1,8 +1,8 @@
-//import 'dart:async';
+import 'dart:async';
 
-//import 'package:barcode_scan/barcode_scan.dart';
+import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 
 class NoteDetail extends StatefulWidget {
   @override
@@ -55,24 +55,25 @@ List<String> alt=['AKILLI TELEFON','ALARM','BANKO','BARKOD PRINTER','CRADLE','DO
  
 
 
-//Future scan() async {
-  //  try {
-    //  String barcode = await BarcodeScanner.scan();
-//      setState(() => this.barcode = barcode);
-  //  } on PlatformException catch (e) {
-    //  if (e.code == BarcodeScanner.CameraAccessDenied) {
-      //  setState(() {
-        //  this.barcode = 'Kamera yetkisi verin!';
- //       });
-   //   } else {
-     //   setState(() => this.barcode = 'Unknown error: $e');
-    //  }
-  //  } on FormatException{
-    //  setState(() => this.barcode = 'Lütfen barkod okutunuz!');
-  //  } catch (e) {
-  //    setState(() => this.barcode = 'Unknown error: $e');
-  //  }
-  //}
+Future scan() async {
+    try {
+      String barcode = await BarcodeScanner.scan();
+      setState(() => this.barcode = barcode);
+    } on PlatformException catch (e) {
+      if (e.code == BarcodeScanner.CameraAccessDenied) {
+        setState(() {
+          this.barcode = 'Kamera yetkisi verin!';
+        });
+      } else {
+        setState(() => this.barcode = 'Unknown error: $e');
+      }
+    } on FormatException{
+      setState(() => this.barcode = 'Lütfen barkod okutunuz!');
+    } catch (e) {
+      setState(() => this.barcode = 'Unknown error: $e');
+    }
+  }
+
 
 
   @override
@@ -195,7 +196,7 @@ child: Column(
                      IconButton(
                     icon: Icon(Icons.camera),
                     iconSize: 30,
-                    onPressed:(){} ,
+                    onPressed: scan,
                     )
             ],
                      ),
