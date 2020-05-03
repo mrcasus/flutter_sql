@@ -9,7 +9,7 @@ class _QueryState extends State<Query> {
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
+      //key: scaffoldKey,
       body: Center(
         child: RaisedButton(
           onPressed: () {},
