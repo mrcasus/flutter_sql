@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sql/screens/note_detail.dart';
-import 'package:flutter_sql/screens/exportToExcel.dart';
 import 'package:flutter_sql/screens/query.dart';
+import 'package:flutter_sql/screens/exportToExcel.dart';
+
+import 'screens/note_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,9 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
  final _pageOptions = [
    NoteDetail(), // Burada herhangi bir değer vermediğiniz için hata veriyor.
    NoteList(),
-  Query();
+   Query(),
    ExportToExcel(),
-   //ExportToExcel(),
+   
  ];
   
   _changeIndex(int index) {
