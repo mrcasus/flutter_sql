@@ -23,9 +23,9 @@ class _QueryState extends State<Query>{
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Barcode Scanner - googleflutter.com'),
-          ),
+       //   appBar: AppBar(
+       //     title: Text('Barcode Scanner - googleflutter.com'),
+        //  ),
           body: Center(
             child: Column(
               children: <Widget>[
